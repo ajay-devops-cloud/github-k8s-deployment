@@ -1,0 +1,49 @@
+name: just for learning
+
+on: workflow_dispatch
+
+permissions:
+  id-token: write
+  contents: read
+  
+jobs: 
+  terraform-init-plan:
+    name: terraform plan & apply
+    runs-on: self-hosted
+    steps: 
+    - name: checkout
+      uses: actions/checkout@v5.0.0
+    
+    - name: Azure Login
+      uses: Azure/login@v2.3.0
+      with:
+        client-id: be0eefc5-50d3-4280-a8cd-66a3c2586ce1
+        tenant-id: efeb520c-f48c-485c-95c5-be148c93599f
+        subscription-id: c05900c4-9a99-417d-878e-413b907a6035
+    - name: Terraform Init
+      run: terraform init
+      working-directory: environment/dev
+      
+    - name: Terraform Validate
+      run: terraform validate
+      working-directory: environment/dev
+      
+    - name: Terraform Plan
+      run: terraform plan
+      working-directory: environment/dev
+    
+        
+        
+    
+    
+
+
+           
+  
+
+
+  
+
+
+      
+
