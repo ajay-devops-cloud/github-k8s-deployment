@@ -20,6 +20,7 @@ jobs:
         client-id: be0eefc5-50d3-4280-a8cd-66a3c2586ce1
         tenant-id: efeb520c-f48c-485c-95c5-be148c93599f
         subscription-id: c05900c4-9a99-417d-878e-413b907a6035
+        
     - name: Terraform Init
       run: terraform init
       working-directory: environment/dev
