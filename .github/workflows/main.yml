@@ -8,7 +8,7 @@ permissions:
   
 jobs: 
   terraform-init-plan:
-    name: terraform plan & plan
+    name: terraform init & plan
     runs-on: self-hosted
     steps: 
     - name: checkout
@@ -33,7 +33,9 @@ jobs:
       run: terraform plan
       working-directory: environment/dev
     
-        
+    - name: Terraform Apply
+      run: terraform Apply
+      working-directory: environment/dev
         
     
     
