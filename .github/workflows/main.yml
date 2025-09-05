@@ -1,13 +1,17 @@
 name: just for learning
 
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
+      - feature/*
 
 permissions:
   id-token: write
   contents: read
   
 jobs: 
-  terraform-init-plan:
+  build:
     name: terraform init & plan
     runs-on: self-hosted
     steps: 
@@ -32,10 +36,25 @@ jobs:
     - name: Terraform Plan
       run: terraform plan
       working-directory: environment/dev
+      
+  Deploy:
+    name: terraform apply
+    runs-on: self-hosted
+    needs: build
+    if: github.ref == 'refs/heads/main'
     
+    steps: 
+    - name: checkout
+      uses: actions/checkout@v5.0.0 
+      
+    - name: Terraform Init
+      run: terraform init
+      working-directory: environment/dev 
+      
     - name: Terraform Apply
       run: terraform Apply
-      working-directory: environment/dev
+      working-directory: environment/dev 
+
         
     
     
