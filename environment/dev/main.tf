@@ -17,6 +17,6 @@ module "stg" {
   location = "central india"
   resource_group_name = "k8s-dev-rg"
   account_replication_type = "LRS"
-  account_tier = "standard"
+  account_tier = "Standard"
   tags = local.common_tags
 }
