@@ -9,7 +9,7 @@ permissions:
 jobs:
   terraform-init-plan:
     name: terraform init and plan
-    runs-on: self hosted
+    runs-on: self-hosted
     steps: 
     - name: Checkout
       uses: actions/checkout@v5.0.0
