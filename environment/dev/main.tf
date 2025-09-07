@@ -10,7 +10,7 @@ module "rg" {
   source = "../../modules/azurerm_resource_group"
   resource_group_name = "k8s-dev-rg"
   location = "central india"
-  tags = common_tags
+  tags = "common_tags"
 }
 
 
@@ -18,7 +18,7 @@ module "rg1" {
   source = "../../modules/azurerm_resource_group"
   resource_group_name = "k8s-dev-rg1"
   location = "central india"
-  tags = common_tags
+  tags = "common_tags"
 }
 module "stg" {
   source = "../../modules/azurerm_storage_account"
@@ -27,7 +27,7 @@ module "stg" {
   resource_group_name = "k8s-dev-rg"
   account_replication_type = "LRS"
   account_tier = "Standard"
-  tags = common_tags
+  tags = "common_tags"
 }
 module "stg1" {
   source = "../../modules/azurerm_storage_account"
@@ -36,5 +36,5 @@ module "stg1" {
   resource_group_name = "k8s-dev-rg"
   account_replication_type = "LRS"
   account_tier = "Standard"
-  tags = common_tags
+  tags = "common_tags"
 }
