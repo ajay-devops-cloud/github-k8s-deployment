@@ -1,10 +1,7 @@
 name: just for learning
 
-on:
-  push:
-    branches:
-      - main
-      - feature/*
+on: workflow_dispatch
+
 
 permissions:
   id-token: write
