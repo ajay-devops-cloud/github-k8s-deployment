@@ -16,6 +16,7 @@ jobs:
   build:
     name: terraform init and plan
     runs-on: self-hosted
+    environment: dev 
     steps: 
     - name: Checkout
       uses: actions/checkout@v5.0.0
