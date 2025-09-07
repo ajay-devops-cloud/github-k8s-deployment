@@ -1,68 +1,38 @@
-name: just for learning
+name: meri github wali pipeline
 
 on: workflow_dispatch
 
-
 permissions:
-  id-token: write
   contents: read
-  
-jobs: 
-  build:
-    name: terraform init & plan
-    runs-on: self-hosted
+  id-token: write
+
+jobs:
+  terraform-init-plan:
+    name: terraform init and plan
+    runs-on: self hosted
     steps: 
-    - name: checkout
+    - name: Checkout
       uses: actions/checkout@v5.0.0
-    
+     
     - name: Azure Login
       uses: Azure/login@v2.3.0
       with:
-        client-id: be0eefc5-50d3-4280-a8cd-66a3c2586ce1
+        client-id: c9f16b78-a14d-46c8-b2bd-b2f9ebb633a1
         tenant-id: efeb520c-f48c-485c-95c5-be148c93599f
         subscription-id: c05900c4-9a99-417d-878e-413b907a6035
+
+    -name: terraform init
+     run: terraform init
+     working-directory: environment/dev
+
+    -name: terraform plan
+     run: terraform plan 
+     working-directory: environment/dev
+      
+       
+       
         
-    - name: Terraform Init
-      run: terraform init
-      working-directory: environment/dev
-      
-    - name: Terraform Validate
-      run: terraform validate
-      working-directory: environment/dev
-      
-    - name: Terraform Plan
-      run: terraform plan
-      working-directory: environment/dev
-      
-  Deploy:
-    name: terraform apply
-    runs-on: self-hosted
-    needs: build
-    if: github.ref == 'refs/heads/main'
-    
-    steps: 
-    - name: checkout
-      uses: actions/checkout@v5.0.0 
-      
-    - name: Terraform Init
-      run: terraform init
-      working-directory: environment/dev 
-      
-    - name: Terraform Apply
-      run: terraform Apply
-      working-directory: environment/dev 
-
         
-    
-    
-
-
-           
-  
-
-
-  
-
-
       
-
+       
+          
