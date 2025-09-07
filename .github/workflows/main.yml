@@ -17,7 +17,7 @@ jobs:
     - name: Azure Login
       uses: Azure/login@v2.3.0
       with:
-        client-id: c9f16b78-a14d-46c8-b2bd-b2f9ebb633a1
+        client-id: be0eefc5-50d3-4280-a8cd-66a3c2586ce1
         tenant-id: efeb520c-f48c-485c-95c5-be148c93599f
         subscription-id: c05900c4-9a99-417d-878e-413b907a6035
 
