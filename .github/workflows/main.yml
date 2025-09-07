@@ -1,5 +1,4 @@
 name: meri github wali pipeline
-
 on:
   pull_request:
     branches:
