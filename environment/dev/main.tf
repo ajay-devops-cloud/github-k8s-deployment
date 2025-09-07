@@ -37,4 +37,5 @@ module "stg1" {
   account_replication_type = "LRS"
   account_tier = "Standard"
   tags = local.common_tags
+  
 }
