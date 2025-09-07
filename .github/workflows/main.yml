@@ -21,13 +21,13 @@ jobs:
         tenant-id: efeb520c-f48c-485c-95c5-be148c93599f
         subscription-id: c05900c4-9a99-417d-878e-413b907a6035
 
-    -name: terraform init
-     run: terraform init
-     working-directory: environment/dev
+    - name: terraform init
+      run: terraform init
+      working-directory: environment/dev
 
-    -name: terraform plan
-     run: terraform plan 
-     working-directory: environment/dev
+    - name: terraform plan
+      run: terraform plan 
+      working-directory: environment/dev
       
        
        
