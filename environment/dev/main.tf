@@ -24,7 +24,7 @@ module "aks" {
 }
 module "acr" {
   source = "../../modules/azurerm_container_registry"
-  acr_name = "k8s-acr"
+  acr_name = "rk8sacr"
      resource_group_name = "k8s-dev-rg"
   location = "central india"
   tags = local.common_tags
