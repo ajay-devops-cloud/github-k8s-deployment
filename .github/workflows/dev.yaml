@@ -1,4 +1,4 @@
-name: grafana
+name: todoinfra
 on:
   push:
     branches:
