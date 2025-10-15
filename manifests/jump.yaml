@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: firefoxjump-pod 
+  labels: 
+    app: app-todo
+spec:
+  containers: 
+    - image: linuxserver/firefox
+      name: firefox
+      ports:
+        - containerPort: 3000
