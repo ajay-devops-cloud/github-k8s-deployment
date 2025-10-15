@@ -1,6 +1,6 @@
-resource "azurerm_sql_database" "example" {
+resource "azurerm_mssql_database" "sql_db" {
   name                = var.sql_database_name
-  resource_group_name = var.resource_group_name
-  location            = var.location
-  server_name         = var.sql_server_name
+   max_size_gb    = 4
+  sku_name       = "S0"
+  server_id         = var.server_id
 }

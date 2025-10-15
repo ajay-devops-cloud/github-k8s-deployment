@@ -44,5 +44,5 @@ module "sql_database" {
   sql_database_name = "dev-database"
      resource_group_name = "k8s-dev-rg"
   location = "central india"
-  sql_server_name = module.sql_server.sql_server
+  server_id= module.sql_server.sql_server
 }
