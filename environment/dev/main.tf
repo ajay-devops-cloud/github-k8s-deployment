@@ -30,3 +30,19 @@ module "acr" {
   tags = local.common_tags
 
 }
+module "sql_server" {
+  source = "../../modules/azurerm_sql_server"
+   resource_group_name = "k8s-dev-rg"
+  location = "central india"
+  administrator_login = "devops123"
+  administrator_login_password = "Devops@12345"
+  sql_server_name = "dev-sql-server"
+  sql_version = "12.0"
+}
+module "sql_database" {
+  source = "../../modules/azurerm_sql_database"
+  sql_database_name = "dev-database"
+     resource_group_name = "k8s-dev-rg"
+  location = "central india"
+  sql_server_name = module.sql_server.sql_server
+}
