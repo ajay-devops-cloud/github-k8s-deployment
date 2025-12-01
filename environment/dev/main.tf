@@ -8,9 +8,7 @@ locals {
 
 module "rg" {
   source = "../../modules/azurerm_resource_group"
-  resource_group_name = "k8s-dev-rg"
-  location = "central india"
-  tags = local.common_tags
+  resource_group = var.resource_group
 }
 
 module "aks" {
@@ -32,17 +30,11 @@ module "acr" {
 }
 module "sql_server" {
   source = "../../modules/azurerm_sql_server"
-   resource_group_name = "k8s-dev-rg"
-  location = "central india"
-  administrator_login = "devops123"
-  administrator_login_password = "Devops@12345"
-  sql_server_name = "devdas-sql-server"
-  sql_version = "12.0"
+  todomysqlserver01 = var.todomysqlserver01
+ 
 }
 module "sql_database" {
   source = "../../modules/azurerm_sql_database"
-  sql_database_name = "devdas-database"
-     resource_group_name = "k8s-dev-rg"
-  location = "central india"
-  server_id= module.sql_server.sql_server
+  sql_database = var.sql_database
+  server_ids = module.sql_server.server_ids
 }

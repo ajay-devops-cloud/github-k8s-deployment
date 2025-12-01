@@ -1,6 +1,14 @@
+variable "resource_group" {
+    type = map(object({
+name = string
+location = string
+tags = optional(map(string))
+managed_by = optional(string)
+}))
+}
 variable "todomysqlserver01" {
     type = map(object({
-  name                         = string
+        name                         = string
   resource_group_name          = string
   location                     = string
   version                      = string 
@@ -21,9 +29,18 @@ type = string
 identity_ids = optional(string)
 })))
 }))
-
 }
 
-  
+variable "sql_database" {
+  type = map(object({
+    name        = string
+    server_key  = string
+    max_size_gb = optional(string)
+    sku_name    = optional(string)
+    collation   = optional(string)
+  }))
+}
+# variable "server_ids" {
+#   type = map(string)
+# }
 
-  

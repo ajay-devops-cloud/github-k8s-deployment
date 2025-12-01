@@ -1,9 +1,9 @@
 terraform {
     backend "azurerm" {
       resource_group_name = "rg-it"
-      storage_account_name = "itsolution3"
-      container_name = "nextlevelcontainer"
-      key = "terraform1.tfstate"
+      storage_account_name = "nextlevelstgac1"
+      container_name = "k8scontainer"
+      key = "k8s.tfstate"
       
     }
   required_providers {
@@ -16,5 +16,5 @@ terraform {
 
 provider "azurerm" {
   features {}
-    subscription_id = "b2f35947-820e-42de-96c7-8905c7b6a259"
+    subscription_id = "792b5051-461b-4568-abbd-b3d549f22f8c"
 }

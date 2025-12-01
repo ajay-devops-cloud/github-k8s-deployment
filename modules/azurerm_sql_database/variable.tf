@@ -1,12 +1,12 @@
-variable "sql_database_name" {
-  
+variable "sql_database" {
+  type = map(object({
+    name        = string
+    server_key  = string
+    max_size_gb = optional(string)
+    sku_name    = optional(string)
+    collation   = optional(string)
+  }))
 }
-variable "resource_group_name" {
-  
-}
-variable "location" {
-  
-}
-variable "server_id" {
-  
+variable "server_ids" {
+  type = map(string)
 }

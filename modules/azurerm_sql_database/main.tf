@@ -1,6 +1,12 @@
-resource "azurerm_mssql_database" "sql_db" {
-  name                = var.sql_database_name
-  sku_name       = "Basic"           # ✅ Basic supports up to 2GB
-  max_size_gb    = 2
-  server_id         = var.server_id
+resource "azurerm_mssql_database" "dev-01-sql_database" {
+  for_each       = var.sql_database
+  name           = each.value.name
+  server_id      = var.server_ids[each.value.server_key]
+  collation      = lookup(each.value, "collation", "SQL_Latin1_General_CP1_CI_AS")
+  license_type   = "LicenseIncluded"
+  max_size_gb    = lookup(each.value, "max_size_gb", 1)
+  read_scale     = true
+  sku_name       = lookup(each.value, "sku_name", "S0")
+  zone_redundant = true
+  enclave_type   = "VBS"
 }
