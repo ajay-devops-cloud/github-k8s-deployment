@@ -7,6 +7,6 @@ resource "azurerm_mssql_database" "dev-01-sql_database" {
   max_size_gb    = lookup(each.value, "max_size_gb", 1)
   read_scale     = true
   sku_name       = lookup(each.value, "sku_name", "S0")
-  zone_redundant = true
+  zone_redundant = false
   enclave_type   = "VBS"
 }
