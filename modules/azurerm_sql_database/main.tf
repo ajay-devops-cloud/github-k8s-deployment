@@ -5,7 +5,7 @@ resource "azurerm_mssql_database" "dev-01-sql_database" {
   collation      = lookup(each.value, "collation", "SQL_Latin1_General_CP1_CI_AS")
   license_type   = "LicenseIncluded"
   max_size_gb    = lookup(each.value, "max_size_gb", 1)
-  read_scale     = true
+  read_scale = lookup(each.value, "read_scale", false)
   sku_name       = lookup(each.value, "sku_name", "S0")
   zone_redundant = false
   enclave_type   = "VBS"
