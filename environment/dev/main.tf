@@ -38,3 +38,4 @@ module "sql_database" {
   sql_database = var.sql_database
   server_ids = module.sql_server.server_ids
 }
+
