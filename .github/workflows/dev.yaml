@@ -17,11 +17,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5.0.0
-      - name: Azure CLI Install
-        uses: azure/CLI@v2
-        with:
-          inlineScript: |
-            az account show
+      
 
       - name: Azure login
         uses: Azure/login@v2.3.0
@@ -31,14 +27,14 @@ jobs:
           subscription-id: 792b5051-461b-4568-abbd-b3d549f22f8c
       - name: terraform init
         run: terraform init
-        working-directory: environment\dev
+        working-directory: environment/dev
       - name: terraform init
         run: terraform init
-        working-directory: environment\dev
+        working-directory: environment/dev
   
       - name: terraform plan
         run: terraform plan 
-        working-directory: environment\dev
+        working-directory: environment/dev
 
   deploy:
     name: terraform apply
@@ -48,8 +44,7 @@ jobs:
     steps: 
     - name: Checkout
       uses: actions/checkout@v5.0.0
-    - name: Install Azure CLI
-      uses: azure/CLI@v2 
+    
     - name: Azure Login
       uses: Azure/login@v2.3.0
       with:
