@@ -17,8 +17,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5.0.0
-      - name: Install Azure CLI
+      - name: Azure CLI Install
         uses: azure/CLI@v2
+        with:
+          inlineScript: |
+            az account show
+
       - name: Azure login
         uses: Azure/login@v2.3.0
         with:
